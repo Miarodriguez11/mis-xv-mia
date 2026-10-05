@@ -1,0 +1,693 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mis XV · Mía Rodríguez</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+margin:0;
+background:#080507;
+color:#f7efe6;
+font-family:Montserrat,Arial,sans-serif;
+overflow-x:hidden
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+background:
+radial-gradient(circle at 50% 10%,rgba(154,8,35,.28),transparent 35%),
+radial-gradient(circle at 10% 80%,rgba(190,145,45,.12),transparent 28%),
+radial-gradient(circle at 90% 70%,rgba(190,145,45,.10),transparent 28%);
+z-index:-2
+}
+
+#cover{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:35px;
+position:relative;
+overflow:hidden;
+background:radial-gradient(circle at center,rgba(125,0,29,.5),#080507 65%)
+}
+
+#cover:after{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+border:1px solid rgba(212,175,55,.28);
+border-radius:50%;
+box-shadow:
+0 0 80px rgba(212,175,55,.08),
+inset 0 0 80px rgba(212,175,55,.04);
+animation:pulse 5s infinite alternate
+}
+
+.crown{
+font-size:58px;
+color:#d4af37;
+text-shadow:0 0 20px rgba(212,175,55,.6);
+margin-bottom:8px;
+animation:float 3s ease-in-out infinite
+}
+
+.kicker{
+font-size:11px;
+letter-spacing:6px;
+color:#d4af37;
+text-transform:uppercase
+}
+
+.cover-name{
+font-family:'Great Vibes',cursive;
+font-size:clamp(72px,13vw,145px);
+font-weight:400;
+color:#f7efe6;
+margin:10px 0;
+text-shadow:0 0 25px rgba(212,175,55,.18)
+}
+
+.cover-xv{
+font-family:Cinzel,serif;
+font-size:clamp(28px,5vw,54px);
+letter-spacing:10px;
+color:#a90c31;
+margin-bottom:25px
+}
+
+.open{
+border:1px solid #d4af37;
+background:linear-gradient(135deg,#6e061e,#a90c31);
+color:#fff7ec;
+padding:15px 34px;
+border-radius:50px;
+font-family:Cinzel,serif;
+letter-spacing:2px;
+cursor:pointer;
+box-shadow:0 0 28px rgba(169,12,49,.35);
+transition:.3s;
+position:relative;
+z-index:10
+}
+
+.open:hover{
+transform:scale(1.05);
+box-shadow:0 0 40px rgba(212,175,55,.35)
+}
+
+main{
+display:none
+}
+
+.hero{
+text-align:center;
+padding:90px 22px 60px;
+position:relative
+}
+
+.ornament{
+color:#d4af37;
+font-size:24px;
+letter-spacing:10px;
+margin-bottom:18px
+}
+
+.eyebrow{
+font-size:10px;
+letter-spacing:5px;
+text-transform:uppercase;
+color:#d4af37
+}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:clamp(65px,11vw,120px);
+font-weight:400;
+margin:8px 0;
+color:#fff6ed
+}
+
+.hero h2{
+font-family:Cinzel,serif;
+font-size:clamp(18px,3vw,30px);
+letter-spacing:8px;
+color:#a90c31;
+margin:0
+}
+
+.hero p{
+max-width:720px;
+margin:28px auto 0;
+line-height:1.9;
+color:#d9cfc7;
+font-weight:300
+}
+
+.section{
+max-width:900px;
+margin:auto;
+padding:55px 22px
+}
+
+.card{
+border:1px solid rgba(212,175,55,.42);
+background:linear-gradient(
+145deg,
+rgba(255,255,255,.045),
+rgba(119,0,28,.10)
+);
+padding:42px 28px;
+text-align:center;
+box-shadow:0 15px 60px rgba(0,0,0,.35);
+position:relative;
+overflow:hidden
+}
+
+.card:before{
+content:"✦";
+position:absolute;
+top:12px;
+left:18px;
+color:#d4af37
+}
+
+.card:after{
+content:"✦";
+position:absolute;
+bottom:12px;
+right:18px;
+color:#d4af37
+}
+
+.phrase{
+font-family:'Great Vibes',cursive;
+font-size:clamp(32px,6vw,58px);
+line-height:1.25;
+color:#d4af37
+}
+
+.details{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:28px
+}
+
+.detail{
+padding:25px 12px;
+border-top:1px solid rgba(212,175,55,.3);
+border-bottom:1px solid rgba(212,175,55,.18)
+}
+
+.detail b{
+display:block;
+font-family:Cinzel,serif;
+color:#d4af37;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:9px
+}
+
+.detail span{
+color:#f5e9df;
+font-size:14px;
+line-height:1.6
+}
+
+.title{
+font-family:Cinzel,serif;
+text-align:center;
+color:#d4af37;
+letter-spacing:4px;
+font-size:18px;
+margin-bottom:25px
+}
+
+.dress{
+color:#eee0d4;
+line-height:1.8
+}
+
+.count{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+margin-top:25px
+}
+
+.time{
+min-width:85px;
+padding:18px 10px;
+border:1px solid rgba(212,175,55,.35);
+background:rgba(80,0,20,.18)
+}
+
+.time strong{
+font-family:Cinzel,serif;
+font-size:27px;
+color:#d4af37;
+display:block
+}
+
+.time small{
+font-size:9px;
+letter-spacing:2px;
+color:#cfc2ba
+}
+
+.rsvp{
+display:inline-block;
+margin-top:22px;
+text-decoration:none;
+color:#fff;
+border:1px solid #d4af37;
+background:#8e0929;
+padding:14px 28px;
+border-radius:40px;
+font-family:Cinzel,serif;
+letter-spacing:2px;
+transition:.3s
+}
+
+.rsvp:hover{
+background:#b10e3a;
+transform:translateY(-2px)
+}
+
+.info{
+max-width:650px;
+margin:20px auto 0;
+color:#d8ccc4;
+font-size:13px;
+line-height:1.8
+}
+
+.deadline{
+color:#d4af37;
+font-family:Cinzel,serif;
+letter-spacing:1px;
+margin-top:18px
+}
+
+footer{
+text-align:center;
+padding:60px 20px 35px;
+color:#8f837d;
+font-size:11px;
+letter-spacing:2px
+}
+
+footer .heart{
+color:#a90c31;
+font-size:20px
+}
+
+.star{
+position:absolute;
+color:#d4af37;
+opacity:.75;
+animation:twinkle 2.5s infinite alternate
+}
+
+.s1{
+top:18%;
+left:12%
+}
+
+.s2{
+top:30%;
+right:15%;
+animation-delay:.7s
+}
+
+.s3{
+bottom:22%;
+left:20%;
+animation-delay:1.2s
+}
+
+.s4{
+bottom:17%;
+right:22%;
+animation-delay:1.8s
+}
+
+@keyframes float{
+50%{
+transform:translateY(-7px)
+}
+}
+
+@keyframes pulse{
+to{
+transform:scale(1.04);
+opacity:.6
+}
+}
+
+@keyframes twinkle{
+from{
+opacity:.18;
+transform:scale(.7)
+}
+
+to{
+opacity:1;
+transform:scale(1.25)
+}
+}
+
+@media(max-width:650px){
+
+.details{
+grid-template-columns:1fr
+}
+
+.card{
+padding:35px 20px
+}
+
+.kicker{
+letter-spacing:3px
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section id="cover">
+
+<span class="star s1">✦</span>
+<span class="star s2">✧</span>
+<span class="star s3">✦</span>
+<span class="star s4">✧</span>
+
+<div>
+
+<div class="crown">♕</div>
+
+<div class="kicker">
+Una noche para recordar
+</div>
+
+<div class="cover-name">
+Mía
+</div>
+
+<div class="cover-xv">
+XV AÑOS
+</div>
+
+<button class="open" id="abrirBoton" type="button">
+ABRIR INVITACIÓN
+</button>
+
+</div>
+
+</section>
+
+
+<main id="invitation">
+
+<section class="hero">
+
+<div class="ornament">
+✦ ── ♕ ── ✦
+</div>
+
+<div class="eyebrow">
+La noche de mi coronación
+</div>
+
+<h1>
+Mía Rodríguez
+</h1>
+
+<h2>
+SWEET XV 
+</h2>
+
+<p>
+Al caer el anochecer, las luces se encienden, el rojo cobra vida y el dorado ilumina una noche que quedará en el corazón.
+<em>Acompáñame a celebrar mis XV años</em> y a convertir esta noche en un recuerdo inolvidable.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="card">
+
+<div class="phrase">
+Una nueva etapa,<br>
+una noche para brillar.
+</div>
+
+<div class="details">
+
+<div class="detail">
+<b>FECHA</b>
+<span>20 de noviembre</span>
+</div>
+
+<div class="detail">
+<b>HORA</b>
+<span>7:00 PM</span>
+</div>
+
+<div class="detail">
+<b>LUGAR</b>
+<span>
+Salón Eventos Jardín Real<br>
+Casa 4 · Cañasgordas
+</span>
+</div>
+
+</div>
+
+<p style="margin:25px 0 0;color:#bdb0a8;font-size:12px;line-height:1.8">
+Cl. 17a #106-300 a 106, Cañasgordas
+</p>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="title">
+CUENTA REGRESIVA
+</div>
+
+<div class="count">
+
+<div class="time">
+<strong id="days">--</strong>
+<small>DÍAS</small>
+</div>
+
+<div class="time">
+<strong id="hours">--</strong>
+<small>HORAS</small>
+</div>
+
+<div class="time">
+<strong id="minutes">--</strong>
+<small>MINUTOS</small>
+</div>
+
+<div class="time">
+<strong id="seconds">--</strong>
+<small>SEGUNDOS</small>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="card">
+
+<div class="title">
+DRESS CODE
+</div>
+
+<div class="phrase" style="font-size:42px">
+Una noche de gala
+</div>
+
+<p class="dress">
+Elegancia: detalles en negro y tonos profundos, oscuros y neutros.✦ <br>
+<em> Evita el rojo y el dorado, son los colores reservados para la quinceañera ❦</em> 
+</p>
+
+</div>
+
+</section>
+
+
+<section class="section" style="padding-bottom:30px">
+
+<div class="card">
+
+<div class="title">
+CONFIRMA TU ASISTENCIA
+</div>
+
+<p class="info">
+Tu presencia hará que esta noche sea aún más especial.
+</p>
+
+<p class="info">
+Si deseas venir acompañado de alguien, por favor consulta previamente al <strong>316 906 5643</strong>.
+</p>
+
+<p class="deadline">
+✦ FECHA LÍMITE PARA CONFIRMAR: 30 DE OCTUBRE ✦
+</p>
+
+<a
+class="rsvp"
+href="https://wa.me/573169065643?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%20XV%20de%20M%C3%ADa%20Rodr%C3%ADguez.%0A%0ANombre%3A%20"
+target="_blank"
+rel="noopener noreferrer">
+
+CONFIRMAR ASISTENCIA
+
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="heart">
+♥
+</div>
+
+Con amor, Mía · Mis XV Años
+
+</footer>
+
+</main>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const boton = document.getElementById("abrirBoton");
+
+const portada = document.getElementById("cover");
+
+const invitacion = document.getElementById("invitation");
+
+
+boton.addEventListener("click", function(){
+
+portada.style.display = "none";
+
+invitacion.style.display = "block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+});
+
+
+const fecha =
+new Date("2026-11-20T19:00:00-05:00").getTime();
+
+
+function actualizar(){
+
+const ahora = Date.now();
+
+let d = Math.max(0, fecha - ahora);
+
+
+const dias =
+Math.floor(d / 86400000);
+
+d %= 86400000;
+
+
+const horas =
+Math.floor(d / 3600000);
+
+d %= 3600000;
+
+
+const minutos =
+Math.floor(d / 60000);
+
+
+const segundos =
+Math.floor((d % 60000) / 1000);
+
+
+document.getElementById("days").textContent =
+String(dias).padStart(2,"0");
+
+
+document.getElementById("hours").textContent =
+String(horas).padStart(2,"0");
+
+
+document.getElementById("minutes").textContent =
+String(minutos).padStart(2,"0");
+
+
+document.getElementById("seconds").textContent =
+String(segundos).padStart(2,"0");
+
+}
+
+
+actualizar();
+
+setInterval(actualizar,1000);
+
+</script>
+
+</body>
+</html>
